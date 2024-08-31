@@ -21,6 +21,6 @@ cfg_if! { if #[cfg(feature = "hydrate")] {
                 .build(),
         );
 
-        leptos::mount_to_body(App);
+        mount_to_body(App);
     }
 }}
