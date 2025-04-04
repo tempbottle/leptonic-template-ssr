@@ -8,9 +8,8 @@ pub mod error_template;
 pub mod fileserv;
 
 cfg_if! { if #[cfg(feature = "hydrate")] {
-    use leptos::*;
+    use leptos::prelude::*;
     use wasm_bindgen::prelude::wasm_bindgen;
-    use crate::app::*;
 
     #[wasm_bindgen]
     pub fn hydrate() {
@@ -21,6 +20,6 @@ cfg_if! { if #[cfg(feature = "hydrate")] {
                 .build(),
         );
 
-        mount_to_body(App);
+        mount_to_body(app::App);
     }
 }}

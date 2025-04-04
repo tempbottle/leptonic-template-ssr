@@ -2,7 +2,7 @@ release:
     source ~/.profile; cargo leptos serve --release
 
 dev:
-    source ~/.profile; cargo leptos serve
+    source ~/.profile; leptosfmt -q ./src/; cargo leptos serve
 
 w:
     source ~/.profile; cargo leptos watch

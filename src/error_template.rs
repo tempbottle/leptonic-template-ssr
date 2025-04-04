@@ -1,7 +1,7 @@
 use cfg_if::cfg_if;
 use http::status::StatusCode;
 use leptonic::components::prelude::*;
-use leptos::*;
+use leptos::prelude::*;
 use thiserror::Error;
 
 #[cfg(feature = "ssr")]
@@ -29,7 +29,7 @@ pub fn ErrorTemplate(
     #[prop(optional)] errors: Option<RwSignal<Errors>>,
 ) -> impl IntoView {
     let errors = match outside_errors {
-        Some(e) => create_rw_signal(e),
+        Some(e) => RwSignal::new(e),
         None => match errors {
             Some(e) => e,
             None => panic!("No Errors found and we expected errors!"),
@@ -57,29 +57,29 @@ pub fn ErrorTemplate(
     }}
 
     view! {
-        <Box style="display: flex; flex-direction: column; align-items:center;">
-            <H1>{match num_errors {
-                1 => "Error",
-                _ => "Errors",
-            }}</H1>
+        <div style="display: flex; flex-direction: column; align-items:center;">
+            <h1>
+                {match num_errors {
+                    1 => "Error",
+                    _ => "Errors",
+                }}
+            </h1>
 
             <For
                 each=move || { errors.clone().into_iter().enumerate() }
                 key=|(index, _error)| *index
                 children=move |(_index, error)| {
-                    // let error_string = error.to_string();
-                    // let error_code= error.status_code();
                     match error {
-                        AppError::NotFound => view! {
-                            <P>"404 - Not Found"</P>
-                        },
+                        AppError::NotFound => {
+                            // let error_string = error.to_string();
+                            // let error_code= error.status_code();
+                            view! { <p>"404 - Not Found"</p> }
+                        }
                     }
                 }
             />
 
-            <LinkButton href="/">
-                "Back"
-            </LinkButton>
-        </Box>
+            <LinkButton href="/">"Back"</LinkButton>
+        </div>
     }
 }
