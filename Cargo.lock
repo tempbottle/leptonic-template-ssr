@@ -1495,6 +1495,7 @@ dependencies = [
  "leptonic-theme",
  "leptos",
  "leptos-tiptap",
+ "leptos-tiptap-build",
  "leptos-use",
  "leptos_meta",
  "leptos_router",
@@ -1604,6 +1605,12 @@ dependencies = [
  "tracing",
  "wasm-bindgen",
 ]
+
+[[package]]
+name = "leptos-tiptap-build"
+version = "0.2.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ff633e8c2bc846df3f719816735a158bd16e1e2e5b7331ba105fe78c00ccd246"
 
 [[package]]
 name = "leptos-use"

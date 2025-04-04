@@ -20,11 +20,11 @@ axum-server = { version = "0.7", features = ["tls-rustls"], optional = true }
 cfg-if = "1.0"
 console_error_panic_hook = "0.1"
 http = "1.0"
-leptonic = { git="https://github.com/tempbottle/leptonic", rev="74cbfeb" }
-leptos = { version = "0.7", features = [] }
+leptonic = { git="https://github.com/tempbottle/leptonic", rev="74cbfeb", features = ["full"] }
+leptos = { version = "0.7"}
 leptos_axum = { version = "0.7", optional = true }
-leptos_meta = { version = "0.7", features = [] }
-leptos_router = { version = "0.7", features = [] }
+leptos_meta = { version = "0.7" }
+leptos_router = { version = "0.7" }
 serde = "1.0"
 serde_json = "1.0"
 thiserror = "2.0"

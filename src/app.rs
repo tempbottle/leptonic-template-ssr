@@ -20,9 +20,7 @@ pub fn shell(options: LeptosOptions) -> impl IntoView {
                 <AutoReload options=options.clone() />
                 <HydrationScripts options />
                 <MetaTags />
-                <Stylesheet id="leptos" href="/pkg/leptonic-template-ssr.css" />
-                <Stylesheet href="/Roboto.css" />
-                <Title text="Leptonic SSR template" />
+
             </head>
             <body>
                 <App />
@@ -35,6 +33,10 @@ pub fn shell(options: LeptosOptions) -> impl IntoView {
 #[component]
 pub fn App() -> impl IntoView {
     view! {
+        <Stylesheet id="leptos" href="/pkg/leptonic-template-ssr.css" />
+        <Stylesheet href="/Roboto.css" />
+        <Title text="Leptonic SSR template" />
+
         <Root default_theme=LeptonicTheme::default()>
             <Router>
                 <Routes fallback=|| {
